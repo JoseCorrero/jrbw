@@ -1,0 +1,105 @@
+---
+import ConcertCard from './CardConcert.astro';
+import { type Concert } from '../types/concert';
+
+import concertsJson from '../../data/concerts.json';
+
+const concerts = (JSON.parse(JSON.stringify(concertsJson))) as Concert[];
+
+const date = new Date();
+const today = new Date(`${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`);
+
+const next = concerts.filter(({ date }) => today <= new Date(date));
+const old = concerts.filter(({ date }) => new Date(date) < today);
+---
+
+<div class="flex flex-col sm:max-w-xl lg:max-w-4xl px-4 m-auto items-center justify-center relative overflow-hidden">
+    <div class="flex space-x-4 mb-8">
+        <button id="btn1" class="px-4 py-2 bg-blue-500 text-white rounded">Section 1</button>
+        <button id="btn2" class="px-4 py-2 bg-blue-500 text-white rounded">Section 2</button>
+    </div>
+    
+    <div class="container">
+        <div id="concertsContent" class="next-visible">
+            <section class="section overflow-x-hidden">
+                <div class="w-full p-6">
+                    <div class="grid gap-8">
+                        {
+                            next.map(concert =>
+                                <article>
+                                    <ConcertCard concert={concert} />
+                                </article>
+                            )
+                        }
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="w-full p-6">
+                    <div class="grid gap-8">
+                        {
+                            old.map(concert =>
+                                <article>
+                                    <ConcertCard concert={concert} />
+                                </article>
+                            )
+                        }
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="absolute inset-y-0 left-0 w-10 pointer-events-none bg-gradient-to-r from-[var(--background-color)]"></div>
+    <div class="absolute inset-y-0 right-0 w-10 pointer-events-none bg-gradient-to-l from-[var(--background-color)]"></div>
+</div>
+
+<style>
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+
+    #concertsContent {
+        display: flex;
+        transition: transform 0.25s ease;
+        width: 200%; /* 100% for each section */
+        height: 100%;
+    }
+
+    .section {
+        width: 50%; /* Two sections, so 50% each */
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .next-visible {
+        transform: translateX(0);
+        transition: transform 0.25s ease-in-out;
+    }
+
+    .old-visible {
+        transform: translateX(-50%);
+        transition: transform 0.25s ease-in-out;
+    }
+</style>
+
+<script is:inline>
+    btn1 = document.getElementById('btn1');
+    btn2 = document.getElementById('btn2');
+    concertsContent = document.getElementById('concertsContent');
+
+    btn1.addEventListener('click', () => {
+        concertsContent.classList.remove('old-visible');
+        concertsContent.classList.add('next-visible');
+    });
+
+    btn2.addEventListener('click', () => {
+        concertsContent.classList.remove('next-visible');
+        concertsContent.classList.add('old-visible');
+    });
+</script>

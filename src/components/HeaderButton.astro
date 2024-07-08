@@ -1,0 +1,48 @@
+---
+interface Props {
+    href: string;
+    name: string;
+    active: boolean;
+}
+
+const { href, name, active } = Astro.props;
+---
+
+<a  href=`${href}`
+    class:list={[
+        "nav-item relative hidden h-full select-none flex-col items-center justify-center gap-1 text-center text-xl uppercase lg:flex lg:px-7 xl:px-10",
+        { "current-page text-[var(--color-selected)]": active },
+        { "text-[var(--color-primary)]": !active },
+]}
+>
+    <span class="z-10">{name}</span>
+    <div class="background absolute -z-10 h-full w-full" />
+</a>
+
+<style>
+    .nav-item .background {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		background: linear-gradient(to bottom, rgba(221, 221, 221, 30%) 0%, transparent 100%);
+		transition: opacity 0.3s;
+	}
+
+	.nav-item:hover .background,
+	.nav-item:focus .background {
+		opacity: 1;
+	}
+
+    .current-page:before {
+        view-transition-name: nav-item;
+        background: var(--color-selected);
+        content: "";
+        width: 100%;
+        height: 8px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>

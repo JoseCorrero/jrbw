@@ -1,0 +1,27 @@
+---
+import { type Concert } from '../types/concert';
+
+interface Props {
+	concert: Concert
+}
+
+const { concert } = Astro.props;
+---
+
+<a class="rounded-lg border shadow-md p-2 text-gray-800 font-bold
+		bg-slate-100 border-gray-500
+		flex flex-col">
+	<h1>Título: {concert.title}</h1>
+	<h4>Fecha: {concert.date}</h4>
+	<h4>Lugar: {concert.place}</h4>
+	{
+		concert.worksByComposer.map(({ composer, works }) =>
+			<h4>{composer}</h4>
+			<ul>
+				{
+					works.map(work => <li>{work}</li>)
+				}
+			</ul>
+		)
+	}
+</a>

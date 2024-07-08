@@ -1,0 +1,115 @@
+[
+    {
+        "title": "Concierto número 1",
+        "date": "2024-07-07",
+        "place": "Auditorio Real Conservatorio Manuel de Falla, Cádiz, España",
+        "worksByComposer": [
+            {
+                "composer": "Krystof Zgraja",
+                "works": [
+                    "Estudios flamencos"
+                ]
+            },
+            {
+                "composer": "Edgard Varèse",
+                "works": [
+                    "Density"
+                ]
+            }
+        ],
+        "participants": [
+            {
+                "title": "Solista",
+                "name": "Jose"
+            },
+            {
+                "title": "Pianista acompañante",
+                "name": "Javi"
+            }
+        ]
+    }, {
+        "title": "Concierto número 2",
+        "date": "2024-07-08",
+        "place": "Auditorio Real Conservatorio Manuel de Falla, Cádiz, España",
+        "worksByComposer": [
+            {
+                "composer": "Bach Jr.",
+                "works": [
+                    "Hamburger Sonata"
+                ]
+            },
+            {
+                "composer": "Edgard Varèse",
+                "works": [
+                    "Density"
+                ]
+            }
+        ],
+        "participants": [
+            {
+                "title": "Solista",
+                "name": "Jose"
+            },
+            {
+                "title": "Pianista acompañante",
+                "name": "Javi"
+            }
+        ]
+    }, {
+        "title": "Concierto número 3",
+        "date": "2024-07-09",
+        "place": "Auditorio Real Conservatorio Manuel de Falla, Cádiz, España",
+        "worksByComposer": [
+            {
+                "composer": "Bach Jr.",
+                "works": [
+                    "Hamburger Sonata"
+                ]
+            },
+            {
+                "composer": "Edgard Varèse",
+                "works": [
+                    "Density"
+                ]
+            }
+        ],
+        "participants": [
+            {
+                "title": "Solista",
+                "name": "Jose"
+            },
+            {
+                "title": "Pianista acompañante",
+                "name": "Javi"
+            }
+        ]
+    }, {
+        "title": "Concierto número 4",
+        "date": "2024-07-12",
+        "place": "Auditorio Real Conservatorio Manuel de Falla, Cádiz, España",
+        "worksByComposer": [
+            {
+                "composer": "Bach Jr.",
+                "works": [
+                    "Hamburger Sonata"
+                ]
+            },
+            {
+                "composer": "Edgard Varèse",
+                "works": [
+                    "Density"
+                ]
+            }
+        ],
+        "participants": [
+            {
+                "title": "Solista",
+                "name": "Jose"
+            },
+            {
+                "title": "Pianista acompañante",
+                "name": "Javi"
+            }
+        ]
+    }
+]
