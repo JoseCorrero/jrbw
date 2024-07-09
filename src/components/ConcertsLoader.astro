@@ -14,14 +14,25 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
 ---
 
 <div class="flex flex-col sm:max-w-xl lg:max-w-4xl px-4 m-auto items-center justify-center relative overflow-hidden">
-    <div class="flex space-x-4 mb-8">
-        <button id="btnNextConcerts" class="px-4 py-2 bg-blue-500 text-white rounded">Section 1</button>
-        <button id="btnOldConcerts" class="px-4 py-2 bg-blue-500 text-white rounded">Section 2</button>
+    <div class="flex relative space-x-4 mb-8 pb-1 overflow-hidden">
+        <button id="btnNextConcerts"
+                class="relative px-4 py-2 text-white text-xl current-section">
+            Next concerts
+        </button>
+        <button id="btnOldConcerts"
+                class="relative px-4 py-2 text-white text-xl">
+            Old concerts
+        </button>
+
+        <div id="bottonUnderlineContent" class="flex absolute w-full h-1 bottom-0 next-current-section">
+            <div class="button-next-underline"></div>
+            <div class="button-old-underline"></div>
+        </div>
     </div>
     
-    <div class="concerts-content-container">
+    <div class="w-full h-full">
         <div id="concertsContent" class="concerts-content next-visible">
-            <section class="concerts-section overflow-x-hidden">
+            <section class="concerts-section">
                 <div class="w-full p-6">
                     <div class="grid gap-y-16">
                         {
@@ -56,15 +67,41 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
 </div>
 
 <style>
-    .concerts-content-container {
-        width: 100%;
-        height: 100%;
+    .current-section {
+        color: var(--color-selected);
+    }
+
+    .button-next-underline,
+    .button-old-underline {
+        content: "";
+        background: var(--color-selected);
+        position: absolute;
+        height: 3px;
+    }
+
+    .button-next-underline {
+        width: 153px;
+        left: -1em;
+    }
+
+    .button-old-underline {
+        width: 143px;
+        right: -9.75em;
+    }
+
+    .next-current-section {
+        transform: translateX(0);
+        transition: transform 0.25s ease-in-out;
+    }
+
+    .old-current-section {
+        transform: translateX(-55%);
+        transition: transform 0.25s ease-in-out;
     }
 
     .concerts-content {
         display: flex;
-        transition: transform 0.5s ease;
-        width: 200%; /* 100% for each section */
+        width: 200%;
         height: 100%;
     }
 
@@ -89,17 +126,30 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
 </style>
 
 <script is:inline>
+    bottonUnderlineContent = document.getElementById('bottonUnderlineContent');
     btnNextConcerts = document.getElementById('btnNextConcerts');
     btnOldConcerts = document.getElementById('btnOldConcerts');
     concertsContent = document.getElementById('concertsContent');
 
     btnNextConcerts.addEventListener('click', () => {
-        concertsContent.classList.remove('old-visible');
+        bottonUnderlineContent.classList.add('next-current-section');
+        bottonUnderlineContent.classList.remove('old-current-section');
+
+        btnNextConcerts.classList.add('current-section');
+        btnOldConcerts.classList.remove('current-section');
+
         concertsContent.classList.add('next-visible');
+        concertsContent.classList.remove('old-visible');
     });
 
     btnOldConcerts.addEventListener('click', () => {
-        concertsContent.classList.remove('next-visible');
+        bottonUnderlineContent.classList.add('old-current-section');
+        bottonUnderlineContent.classList.remove('next-current-section');
+
+        btnOldConcerts.classList.add('current-section');
+        btnNextConcerts.classList.remove('current-section');
+
         concertsContent.classList.add('old-visible');
+        concertsContent.classList.remove('next-visible');
     });
 </script>

@@ -10,12 +10,12 @@ const { href, name, active } = Astro.props;
 
 <a  href=`${href}`
     class:list={[
-        "nav-item relative hidden h-full select-none flex-col items-center justify-center gap-1 text-center text-xl uppercase lg:flex lg:px-7 xl:px-10",
-        { "current-page text-[var(--color-selected)]": active },
-        { "text-[var(--color-primary)]": !active },
-]}
+        "nav-item relative hidden h-full select-none flex-col items-center justify-center text-center lg:flex lg:px-7 xl:px-10",
+        { "current-page": active },
+        { "text-[var(--color-primary)]": !active }
+    ]}
 >
-    <span class="z-10">{name}</span>
+    <span class="text-xl uppercase z-10">{name}</span>
     <div class="background absolute -z-10 h-full w-full" />
 </a>
 
@@ -34,6 +34,10 @@ const { href, name, active } = Astro.props;
 	.nav-item:focus .background {
 		opacity: 1;
 	}
+
+    .current-page {
+        color: var(--color-selected);
+    }
 
     .current-page:before {
         view-transition-name: nav-item;
