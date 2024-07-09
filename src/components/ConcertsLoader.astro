@@ -15,18 +15,20 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
 
 <div class="flex flex-col sm:max-w-xl lg:max-w-4xl px-4 m-auto items-center justify-center relative overflow-hidden">
     <div class="flex relative space-x-4 mb-8 pb-1 overflow-hidden">
-        <button id="btnNextConcerts"
-                class="relative px-4 py-2 text-white text-xl current-section">
-            Next concerts
-        </button>
-        <button id="btnOldConcerts"
-                class="relative px-4 py-2 text-white text-xl">
-            Old concerts
-        </button>
+        <div>
+            <button id="btnNextConcerts"
+                    class="relative px-4 py-2 text-white text-xl current-section">
+                Next concerts
+            </button>
+            <div id="nextButtonUnderline" class="content-none bg-[var(--color-selected)] w-full h-[3px] mt-0.5"></div>
+        </div>
 
-        <div id="bottonUnderlineContent" class="flex absolute w-full h-1 bottom-0 next-current-section">
-            <div class="button-next-underline"></div>
-            <div class="button-old-underline"></div>
+        <div>
+            <button id="btnOldConcerts"
+                    class="relative px-4 py-2 text-white text-xl">
+                Old concerts
+            </button>
+            <div id="oldButtonUnderline" class="content-none bg-[var(--color-selected)] w-full h-[3px] mt-0.5 move-out-to-the-right"></div>
         </div>
     </div>
     
@@ -67,15 +69,17 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
 </div>
 
 <style>
+    :root {
+        --transition-speed: 0.3s;
+    }
+
     .current-section {
         color: var(--color-selected);
     }
 
-    .button-next-underline,
-    .button-old-underline {
+    .button-underline {
         content: "";
         background: var(--color-selected);
-        position: absolute;
         height: 3px;
     }
 
@@ -87,16 +91,6 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
     .button-old-underline {
         width: 143px;
         right: -9.75em;
-    }
-
-    .next-current-section {
-        transform: translateX(0);
-        transition: transform 0.25s ease-in-out;
-    }
-
-    .old-current-section {
-        transform: translateX(-55%);
-        transition: transform 0.25s ease-in-out;
     }
 
     .concerts-content {
@@ -114,26 +108,43 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
         box-sizing: border-box;
     }
 
+    .move-in {
+        transform: translateX(0);
+        transition: transform var(--transition-speed) ease-in-out;
+    }
+
+    .move-out-to-the-left {
+        transform: translateX(-110%);
+        transition: transform var(--transition-speed) ease-in-out;
+    }
+
+    .move-out-to-the-right {
+        transform: translateX(110%);
+        transition: transform var(--transition-speed) ease-in-out;
+    }
+
     .next-visible {
         transform: translateX(0);
-        transition: transform 0.25s ease-in-out;
+        transition: transform var(--transition-speed) ease-in-out;
     }
 
     .old-visible {
         transform: translateX(-50%);
-        transition: transform 0.25s ease-in-out;
+        transition: transform var(--transition-speed) ease-in-out;
     }
 </style>
 
 <script is:inline>
-    bottonUnderlineContent = document.getElementById('bottonUnderlineContent');
     btnNextConcerts = document.getElementById('btnNextConcerts');
     btnOldConcerts = document.getElementById('btnOldConcerts');
+    nextButtonUnderline = document.getElementById('nextButtonUnderline');
+    oldButtonUnderline = document.getElementById('oldButtonUnderline');
     concertsContent = document.getElementById('concertsContent');
 
     btnNextConcerts.addEventListener('click', () => {
-        bottonUnderlineContent.classList.add('next-current-section');
-        bottonUnderlineContent.classList.remove('old-current-section');
+        oldButtonUnderline.classList.add('move-out-to-the-right');
+        nextButtonUnderline.classList.remove('move-out-to-the-left');
+        nextButtonUnderline.classList.add('move-in');
 
         btnNextConcerts.classList.add('current-section');
         btnOldConcerts.classList.remove('current-section');
@@ -143,8 +154,9 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
     });
 
     btnOldConcerts.addEventListener('click', () => {
-        bottonUnderlineContent.classList.add('old-current-section');
-        bottonUnderlineContent.classList.remove('next-current-section');
+        nextButtonUnderline.classList.add('move-out-to-the-left');
+        oldButtonUnderline.classList.remove('move-out-to-the-right');
+        oldButtonUnderline.classList.add('move-in');
 
         btnOldConcerts.classList.add('current-section');
         btnNextConcerts.classList.remove('current-section');
