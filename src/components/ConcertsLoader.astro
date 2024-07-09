@@ -13,7 +13,7 @@ const next = concerts.filter(({ date }) => today <= new Date(date));
 const old = concerts.filter(({ date }) => new Date(date) < today);
 ---
 
-<div class="flex flex-col sm:max-w-xl lg:max-w-4xl px-4 m-auto items-center justify-center relative overflow-hidden">
+<div class="flex flex-col sm:max-w-xl md:max-w-3xl lg:max-w-6xl px-4 m-auto items-center justify-center relative overflow-hidden">
     <div class="flex relative space-x-4 mb-8 pb-1 overflow-hidden">
         <div>
             <button id="btnNextConcerts"
@@ -35,7 +35,7 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
     <div class="w-full h-full">
         <div id="concertsContent" class="concerts-content next-visible">
             <section class="concerts-section">
-                <div class="w-full p-6">
+                <div class="sm:w-full md:w-2/3 lg:w-1/2 p-6">
                     <div class="grid gap-y-16">
                         {
                             next.map(concert =>
@@ -49,7 +49,7 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
             </section>
 
             <section class="concerts-section">
-                <div class="w-full p-6">
+                <div class="sm:w-full md:w-2/3 lg:w-1/2 p-6">
                     <div class="grid gap-y-16">
                         {
                             old.map(concert =>
@@ -64,8 +64,8 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
         </div>
     </div>
 
-    <div class="absolute inset-y-0 left-0 w-10 pointer-events-none bg-gradient-to-r from-[var(--background-color)]"></div>
-    <div class="absolute inset-y-0 right-0 w-10 pointer-events-none bg-gradient-to-l from-[var(--background-color)]"></div>
+    <div class="absolute inset-y-0 left-0 w-12 lg:w-64 pointer-events-none bg-gradient-to-r from-[var(--background-color)]"></div>
+    <div class="absolute inset-y-0 right-0 w-12 lg:w-64 pointer-events-none bg-gradient-to-l from-[var(--background-color)]"></div>
 </div>
 
 <style>
