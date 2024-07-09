@@ -15,15 +15,15 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
 
 <div class="flex flex-col sm:max-w-xl lg:max-w-4xl px-4 m-auto items-center justify-center relative overflow-hidden">
     <div class="flex space-x-4 mb-8">
-        <button id="btn1" class="px-4 py-2 bg-blue-500 text-white rounded">Section 1</button>
-        <button id="btn2" class="px-4 py-2 bg-blue-500 text-white rounded">Section 2</button>
+        <button id="btnNextConcerts" class="px-4 py-2 bg-blue-500 text-white rounded">Section 1</button>
+        <button id="btnOldConcerts" class="px-4 py-2 bg-blue-500 text-white rounded">Section 2</button>
     </div>
     
-    <div class="container">
-        <div id="concertsContent" class="next-visible">
-            <section class="section overflow-x-hidden">
+    <div class="concerts-content-container">
+        <div id="concertsContent" class="concerts-content next-visible">
+            <section class="concerts-section overflow-x-hidden">
                 <div class="w-full p-6">
-                    <div class="grid gap-8">
+                    <div class="grid gap-y-16">
                         {
                             next.map(concert =>
                                 <article>
@@ -35,9 +35,9 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
                 </div>
             </section>
 
-            <section class="section">
+            <section class="concerts-section">
                 <div class="w-full p-6">
-                    <div class="grid gap-8">
+                    <div class="grid gap-y-16">
                         {
                             old.map(concert =>
                                 <article>
@@ -56,20 +56,20 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
 </div>
 
 <style>
-    .container {
+    .concerts-content-container {
         width: 100%;
         height: 100%;
     }
 
-    #concertsContent {
+    .concerts-content {
         display: flex;
-        transition: transform 0.25s ease;
+        transition: transform 0.5s ease;
         width: 200%; /* 100% for each section */
         height: 100%;
     }
 
-    .section {
-        width: 50%; /* Two sections, so 50% each */
+    .concerts-section {
+        width: 50%;
         height: 100%;
         display: flex;
         align-items: center;
@@ -89,16 +89,16 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
 </style>
 
 <script is:inline>
-    btn1 = document.getElementById('btn1');
-    btn2 = document.getElementById('btn2');
+    btnNextConcerts = document.getElementById('btnNextConcerts');
+    btnOldConcerts = document.getElementById('btnOldConcerts');
     concertsContent = document.getElementById('concertsContent');
 
-    btn1.addEventListener('click', () => {
+    btnNextConcerts.addEventListener('click', () => {
         concertsContent.classList.remove('old-visible');
         concertsContent.classList.add('next-visible');
     });
 
-    btn2.addEventListener('click', () => {
+    btnOldConcerts.addEventListener('click', () => {
         concertsContent.classList.remove('next-visible');
         concertsContent.classList.add('old-visible');
     });
