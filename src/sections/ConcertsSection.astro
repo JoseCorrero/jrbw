@@ -1,19 +1,25 @@
 ---
-import ConcertCard from './CardConcert.astro';
+import ConcertCard from '../components/CardConcert.astro';
 import { type Concert } from '../types/concert';
 
 import concertsJson from '../../data/concerts.json';
 
 const concerts = (JSON.parse(JSON.stringify(concertsJson))) as Concert[];
 
-const date = new Date();
-const today = new Date(`${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`);
+const today = new Date();
+const todayTrim = new Date(`${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`);
 
-const next = concerts.filter(({ date }) => today <= new Date(date));
-const old = concerts.filter(({ date }) => new Date(date) < today);
+const next = concerts.filter(({ date }) => todayTrim <= new Date(date));
+const old = concerts.filter(({ date }) => new Date(date) < todayTrim);
+
+const MS_PER_DAY = (24 * 60 * 60 * 1000);
+
+function lessThanAWeekToConcert(date: string): boolean {
+    return Math.round((new Date(date).getTime() - todayTrim.getTime()) / MS_PER_DAY) <= 7;
+}
 ---
 
-<div class="flex flex-col sm:max-w-xl md:max-w-3xl lg:max-w-6xl px-4 m-auto items-center justify-center relative overflow-hidden">
+<section class="flex flex-col sm:max-w-xl md:max-w-3xl lg:max-w-6xl px-4 m-auto items-center justify-center relative overflow-hidden">
     <div class="flex relative space-x-4 mb-8 pb-1 overflow-hidden">
         <div>
             <button id="btnNextConcerts"
@@ -34,39 +40,39 @@ const old = concerts.filter(({ date }) => new Date(date) < today);
     
     <div class="w-full h-full">
         <div id="concertsContent" class="concerts-content next-visible">
-            <section class="concerts-section">
+            <div class="concerts-section">
                 <div class="sm:w-full md:w-2/3 lg:w-1/2 p-6">
                     <div class="grid gap-y-16">
                         {
                             next.map(concert =>
                                 <article>
-                                    <ConcertCard concert={concert} />
+                                    <ConcertCard concert={concert} isNext={true} showDayOfWeek={lessThanAWeekToConcert(concert.date)} />
                                 </article>
                             )
                         }
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section class="concerts-section">
+            <div class="concerts-section">
                 <div class="sm:w-full md:w-2/3 lg:w-1/2 p-6">
                     <div class="grid gap-y-16">
                         {
                             old.map(concert =>
                                 <article>
-                                    <ConcertCard concert={concert} />
+                                    <ConcertCard concert={concert} isNext={false} showDayOfWeek={false} />
                                 </article>
                             )
                         }
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
     </div>
 
     <div class="absolute inset-y-0 left-0 w-12 lg:w-64 pointer-events-none bg-gradient-to-r from-[var(--background-color)]"></div>
     <div class="absolute inset-y-0 right-0 w-12 lg:w-64 pointer-events-none bg-gradient-to-l from-[var(--background-color)]"></div>
-</div>
+</section>
 
 <style>
     :root {
