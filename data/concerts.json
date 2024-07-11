@@ -2,7 +2,9 @@
     {
         "title": "Concierto número 1",
         "date": "2024-07-07",
-        "place": "Auditorio Real Conservatorio Manuel de Falla, Cádiz, España",
+        "place": "Auditorio Real Conservatorio Manuel de Falla",
+        "city": "Cádiz",
+        "country": "España",
         "worksByComposer": [
             {
                 "composer": "Krystof Zgraja",
@@ -30,7 +32,9 @@
     }, {
         "title": "Concierto número 2",
         "date": "2024-07-08",
-        "place": "Auditorio Real Conservatorio Manuel de Falla, Cádiz, España",
+        "place": "Auditorio Real Conservatorio Manuel de Falla",
+        "city": "Cádiz",
+        "country": "España",
         "worksByComposer": [
             {
                 "composer": "Bach Jr.",
@@ -58,7 +62,9 @@
     }, {
         "title": "Concierto número 3",
         "date": "2024-07-09",
-        "place": "Auditorio Real Conservatorio Manuel de Falla, Cádiz, España",
+        "place": "Auditorio Real Conservatorio Manuel de Falla",
+        "city": "Cádiz",
+        "country": "España",
         "worksByComposer": [
             {
                 "composer": "Bach Jr.",
@@ -86,7 +92,9 @@
     }, {
         "title": "Concierto número 4",
         "date": "2024-07-12",
-        "place": "Auditorio Real Conservatorio Manuel de Falla, Cádiz, España",
+        "place": "Auditorio Real Conservatorio Manuel de Falla",
+        "city": "Cádiz",
+        "country": "España",
         "worksByComposer": [
             {
                 "composer": "Bach Jr.",

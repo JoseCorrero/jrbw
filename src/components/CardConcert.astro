@@ -2,26 +2,78 @@
 import { type Concert } from '../types/concert';
 
 interface Props {
-	concert: Concert
+	concert: Concert;
+	isNext: boolean;
+	showDayOfWeek: boolean;
 }
 
-const { concert } = Astro.props;
+const locale = new Intl.Locale('en');
+
+const dateFormatter = new Intl.DateTimeFormat(locale, {
+	weekday: "long",
+	year: "numeric",
+	month: "long",
+	day: "numeric"
+});
+
+const { concert, isNext, showDayOfWeek } = Astro.props;
+
+const date = new Date(concert.date);
+const prettyDate = dateFormatter.formatToParts(date);
+
+const dayOfWeek = prettyDate[0].value;
+const day = prettyDate[4].value;
+const month = prettyDate[2].value;
+const year = prettyDate[6].value;
 ---
 
-<a class="rounded-lg border shadow-md p-2 text-gray-800 font-bold
-		bg-slate-100 border-gray-500
-		flex flex-col">
-	<h1>Título: {concert.title}</h1>
-	<h4>Fecha: {concert.date}</h4>
-	<h4>Lugar: {concert.place}</h4>
-	{
-		concert.worksByComposer.map(({ composer, works }) =>
-			<h4>{composer}</h4>
-			<ul>
-				{
-					works.map(work => <li>{work}</li>)
-				}
-			</ul>
-		)
+<article class="rounded-md bg-gray-100 border border-gray-500 text-[var(--text-color-primary)]">
+	<div class="px-8 py-6 text-right ">
+		<h3 class:list={[
+			"text-2xl font-bold",
+			{ "text-gray-700/60": !isNext }
+		]}>
+			{concert.title}
+		</h3>
+		<p>
+			<span class:list={[
+				"text-xl font-bold uppercase text-[var(--text-color-dayOfWeek)]",
+				{ "hidden": !showDayOfWeek }
+			]}>{dayOfWeek}</span>
+			<span class:list={[
+				"text-[1.1rem] font-medium",
+				{ "text-[var(--text-color-date-next)]": isNext },
+				{ "text-[var(--text-color-date-old)]": !isNext }
+			]}>{month} {day}, {year}</span>
+		</p>
+		<p>
+			<span class="text-[1.05rem]">{concert.place}</span>
+		</p>
+		<p>
+			<span class="text-[1.05rem]">{concert.city}, {concert.country}</span>
+		</p>
+		<br/>
+		{
+			concert.worksByComposer.map(({ composer, works }, index, worksByComposer) => (
+				<>
+					<h4 class="text-[1.2rem] font-semibold">{composer}</h4>
+					<ul>
+						{
+							works.map(work => <li class="italic text-[1.05rem]">{work}</li>)
+						}
+					</ul>
+					{index < worksByComposer.length - 1 && <br/>}
+				</>
+			))
+		}
+	</div>
+</article>
+
+<style>
+	:root {
+		--text-color-primary: #374151; /* gray-700 */
+		--text-color-dayOfWeek: #84cc16; /* lime-500 */
+		--text-color-date-next: #65a30d ; /* lime-600 */
+		--text-color-date-old: #059669 ; /* emerald-600 */
 	}
-</a>
+</style>

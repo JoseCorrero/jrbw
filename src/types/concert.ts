@@ -1,14 +1,16 @@
 export type Concert = {
-    title:           string;
-    date:            Date;
-    place:           string;
+    title: string;
+    date: string;
+    place: string;
+    city: string;
+    country: string;
     worksByComposer: WorkByComposer[];
-    participants:    Participant[];
+    participants: Participant[];
 }
 
 export type Participant = {
     title: string;
-    name:  string;
+    name: string;
 }
 
 export type WorkByComposer = {
