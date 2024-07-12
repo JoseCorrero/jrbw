@@ -14,12 +14,16 @@ const old = concerts.filter(({ date }) => new Date(date) < todayTrim);
 
 const MS_PER_DAY = (24 * 60 * 60 * 1000);
 
+function isToday(date: string) {
+    return new Date(date).getTime() == todayTrim.getTime();
+}
+
 function lessThanAWeekToConcert(date: string): boolean {
-    return Math.round((new Date(date).getTime() - todayTrim.getTime()) / MS_PER_DAY) <= 7;
+    return Math.round((new Date(date).getTime() - todayTrim.getTime()) / MS_PER_DAY) < 7;
 }
 ---
 
-<section class="flex flex-col sm:max-w-xl md:max-w-3xl lg:max-w-6xl px-4 m-auto items-center justify-center relative overflow-hidden">
+<section class="flex flex-col sm:max-w-xl md:max-w-3xl lg:max-w-[92rem] px-4 m-auto items-center justify-center relative overflow-hidden">
     <div class="flex relative space-x-4 mb-8 pb-1 overflow-hidden">
         <div>
             <button id="btnNextConcerts"
@@ -41,12 +45,16 @@ function lessThanAWeekToConcert(date: string): boolean {
     <div class="w-full h-full">
         <div id="concertsContent" class="concerts-content next-visible">
             <div class="concerts-section">
-                <div class="sm:w-full md:w-2/3 lg:w-1/2 p-6">
+                <div class="sm:w-full md:w-2/3 lg:w-7/12 p-6">
                     <div class="grid gap-y-16">
                         {
                             next.map(concert =>
                                 <article>
-                                    <ConcertCard concert={concert} isNext={true} showDayOfWeek={lessThanAWeekToConcert(concert.date)} />
+                                    <ConcertCard
+                                        concert={concert}
+                                        isNext={true}
+                                        isToday={isToday(concert.date)}
+                                        showDayOfWeek={lessThanAWeekToConcert(concert.date)} />
                                 </article>
                             )
                         }
@@ -60,7 +68,11 @@ function lessThanAWeekToConcert(date: string): boolean {
                         {
                             old.map(concert =>
                                 <article>
-                                    <ConcertCard concert={concert} isNext={false} showDayOfWeek={false} />
+                                    <ConcertCard
+                                        concert={concert}
+                                        isNext={false}
+                                        isToday={false}
+                                        showDayOfWeek={false} />
                                 </article>
                             )
                         }
@@ -70,15 +82,11 @@ function lessThanAWeekToConcert(date: string): boolean {
         </div>
     </div>
 
-    <div class="absolute inset-y-0 left-0 w-12 lg:w-64 pointer-events-none bg-gradient-to-r from-[var(--background-color)]"></div>
-    <div class="absolute inset-y-0 right-0 w-12 lg:w-64 pointer-events-none bg-gradient-to-l from-[var(--background-color)]"></div>
+    <div class="absolute inset-y-0 left-0 w-12 lg:w-60 pointer-events-none bg-gradient-to-r from-[var(--background-color)]"></div>
+    <div class="absolute inset-y-0 right-0 w-12 lg:w-60 pointer-events-none bg-gradient-to-l from-[var(--background-color)]"></div>
 </section>
 
 <style>
-    :root {
-        --transition-speed: 0.3s;
-    }
-
     .current-section {
         color: var(--color-selected);
     }

@@ -1,10 +1,10 @@
 [
     {
-        "title": "Concierto número 1",
+        "title": "Concert #1",
         "date": "2024-07-07",
         "place": "Auditorio Real Conservatorio Manuel de Falla",
         "city": "Cádiz",
-        "country": "España",
+        "country": "Spain",
         "worksByComposer": [
             {
                 "composer": "Krystof Zgraja",
@@ -21,20 +21,20 @@
         ],
         "participants": [
             {
-                "title": "Solista",
-                "name": "Jose"
+                "title": "Solo",
+                "name": "Jose Correro"
             },
             {
-                "title": "Pianista acompañante",
-                "name": "Javi"
+                "title": "Piano",
+                "name": "Salomé Jiménez"
             }
         ]
     }, {
-        "title": "Concierto número 2",
+        "title": "Concert #2",
         "date": "2024-07-08",
         "place": "Auditorio Real Conservatorio Manuel de Falla",
         "city": "Cádiz",
-        "country": "España",
+        "country": "Spain",
         "worksByComposer": [
             {
                 "composer": "Bach Jr.",
@@ -51,20 +51,20 @@
         ],
         "participants": [
             {
-                "title": "Solista",
-                "name": "Jose"
+                "title": "Solo",
+                "name": "Jose Correro"
             },
             {
-                "title": "Pianista acompañante",
-                "name": "Javi"
+                "title": "Piano",
+                "name": "Salomé Jiménez"
             }
         ]
     }, {
-        "title": "Concierto número 3",
+        "title": "Concert #3",
         "date": "2024-07-09",
         "place": "Auditorio Real Conservatorio Manuel de Falla",
         "city": "Cádiz",
-        "country": "España",
+        "country": "Spain",
         "worksByComposer": [
             {
                 "composer": "Bach Jr.",
@@ -81,20 +81,20 @@
         ],
         "participants": [
             {
-                "title": "Solista",
-                "name": "Jose"
+                "title": "Solo",
+                "name": "Jose Correro"
             },
             {
-                "title": "Pianista acompañante",
-                "name": "Javi"
+                "title": "Piano",
+                "name": "Salomé Jiménez"
             }
         ]
     }, {
-        "title": "Concierto número 4",
+        "title": "Concert #4",
         "date": "2024-07-12",
         "place": "Auditorio Real Conservatorio Manuel de Falla",
         "city": "Cádiz",
-        "country": "España",
+        "country": "Spain",
         "worksByComposer": [
             {
                 "composer": "Bach Jr.",
@@ -111,12 +111,40 @@
         ],
         "participants": [
             {
-                "title": "Solista",
-                "name": "Jose"
+                "title": "Solo",
+                "name": "Jose Correro"
             },
             {
-                "title": "Pianista acompañante",
-                "name": "Javi"
+                "title": "Piano",
+                "name": "Salomé Jiménez"
+            }
+        ]
+    }, {
+        "title": "Concert #5",
+        "date": "2024-07-18",
+        "place": "Auditorio Real Conservatorio Manuel de Falla",
+        "city": "Cádiz",
+        "country": "Spain",
+        "worksByComposer": [
+            {
+                "composer": "Tchaikovsky",
+                "works": [
+                    "Swan Lake",
+                    "Romeo and Juliet",
+                    "6th Symphony"
+                ]
+            }, {
+                "composer": "Vivaldi",
+                "works": [
+                    "Four Seasons",
+                    "Concerto in F minor"
+                ]
+            }
+        ],
+        "participants": [
+            {
+                "title": "Conductor",
+                "name": "Jerome Ireland"
             }
         ]
     }
