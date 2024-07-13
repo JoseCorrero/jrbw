@@ -43,19 +43,17 @@ function lessThanAWeekToConcert(date: string): boolean {
     </div>
     
     <div class="w-full h-full">
-        <div id="concertsContent" class="concerts-content next-visible">
+        <div id="concertsContent" class="concerts-content next-visible pb-6">
             <div class="concerts-section">
                 <div class="sm:w-full md:w-2/3 lg:w-7/12 p-6">
                     <div class="grid gap-y-16">
                         {
                             next.map(concert =>
-                                <article>
-                                    <ConcertCard
-                                        concert={concert}
-                                        isNext={true}
-                                        isToday={isToday(concert.date)}
-                                        showDayOfWeek={lessThanAWeekToConcert(concert.date)} />
-                                </article>
+                                <ConcertCard
+                                    concert={concert}
+                                    isNext={true}
+                                    isToday={isToday(concert.date)}
+                                    showDayOfWeek={lessThanAWeekToConcert(concert.date)} />
                             )
                         }
                     </div>
@@ -67,13 +65,11 @@ function lessThanAWeekToConcert(date: string): boolean {
                     <div class="grid gap-y-16">
                         {
                             old.map(concert =>
-                                <article>
-                                    <ConcertCard
-                                        concert={concert}
-                                        isNext={false}
-                                        isToday={false}
-                                        showDayOfWeek={false} />
-                                </article>
+                                <ConcertCard
+                                    concert={concert}
+                                    isNext={false}
+                                    isToday={false}
+                                    showDayOfWeek={false} />
                             )
                         }
                     </div>
