@@ -23,10 +23,6 @@
             {
                 "title": "Solo",
                 "name": "Jose Correro"
-            },
-            {
-                "title": "Piano",
-                "name": "Salomé Jiménez"
             }
         ]
     }, {
@@ -121,7 +117,7 @@
         ]
     }, {
         "title": "Concert #5",
-        "date": "2024-07-18",
+        "date": "2024-07-21",
         "place": "Auditorio Real Conservatorio Manuel de Falla",
         "city": "Cádiz",
         "country": "Spain",
@@ -145,7 +141,20 @@
             {
                 "title": "Conductor",
                 "name": "Jerome Ireland"
+            }, {
+                "title": "Flute",
+                "name": "Juan Ramón Bres"
+            }, {
+                "title": "Piano",
+                "name": "Anabel Martín"
+            }, {
+                "title": "Clarinet",
+                "name": "Christian Okawara"
+            }, {
+                "title": "Cello",
+                "name": "José Antonio Escobar"
             }
-        ]
+        ],
+        "image": "concert5.jpg"
     }
 ]

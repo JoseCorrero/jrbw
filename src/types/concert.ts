@@ -6,6 +6,7 @@ export type Concert = {
     country: string;
     worksByComposer: WorkByComposer[];
     participants: Participant[];
+    image: string;
 }
 
 export type Participant = {
