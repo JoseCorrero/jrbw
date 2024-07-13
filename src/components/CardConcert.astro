@@ -25,7 +25,7 @@ const year = prettyDate[6].value;
 
 <article class="concert-card
 	rounded-md relative overflow-hidden
-	bg-gray-100 text-[var(--text-color-primary)]
+	bg-[var(--color-primary)] text-[var(--text-color-primary)]
 	border border-[var(--color-primary)] hover:border-[var(--color-selected)]"
 >
 	<div class="flex relative text-center md:text-right">
@@ -33,8 +33,7 @@ const year = prettyDate[6].value;
 				class="w-0 md:w-1/2 content-none
 					bg-cyan-500 object-cover"
 		>
-		<div class="w-full pl-6 pr-8 py-6 md:w-1/2
-			bg-gray-100"
+		<div class="w-full pl-6 pr-8 py-6 md:w-1/2"
 		>
 			<div class="flex flex-row flex-wrap text-wrap
 				font-size-1"
@@ -95,7 +94,7 @@ const year = prettyDate[6].value;
 	<div class="participants
 			flex flex-row flex-wrap
 			px-8
-			bg-gray-700">
+			bg-[var(--text-color-background-participants)]">
 		{
 			concert.participants.map(({ title, name }) => (
 				<div class="items-center align-middle text-center text-wrap flex-auto
@@ -103,8 +102,8 @@ const year = prettyDate[6].value;
 					md:w-1/3 md:py-6
 					lg:w-1/3"
 				>
-					<h5 class="text-white font-size-6 font-medium">{name}</h5>
-					<p class="text-yellow-200 font-size-5">{title}</p>
+					<h5 class="text-[var(--color-primary)] font-size-6 font-medium">{name}</h5>
+					<p class="text-[var(--text-color-participant-title)] font-size-5">{title}</p>
 				</div>
 			))
 		}
@@ -116,8 +115,10 @@ const year = prettyDate[6].value;
 		--text-color-primary: #374151; /* gray-700 */
 		--text-color-today: #84cc16; /* lime-500 */
 		--text-color-dayOfWeek: #06b6d4; /* cyan-500 */
-		--text-color-date-next: #65a30d ; /* lime-600 */
-		--text-color-date-old: #059669 ; /* emerald-600 */
+		--text-color-date-next: #65a30d; /* lime-600 */
+		--text-color-date-old: #059669; /* emerald-600 */
+		--text-color-background-participants: #374151; /* gray-700 */
+		--text-color-participant-title: #fef08a; /* yellow-200 */
 	}
 	
 	.concert-card {
