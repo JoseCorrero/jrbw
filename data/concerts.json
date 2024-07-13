@@ -24,7 +24,8 @@
                 "title": "Solo",
                 "name": "Jose Correro"
             }
-        ]
+        ],
+        "image": "concert5.jpg"
     }, {
         "title": "Concert #2",
         "date": "2024-07-08",
@@ -54,39 +55,10 @@
                 "title": "Piano",
                 "name": "Salomé Jiménez"
             }
-        ]
+        ],
+        "image": "concert5.jpg"
     }, {
         "title": "Concert #3",
-        "date": "2024-07-09",
-        "place": "Auditorio Real Conservatorio Manuel de Falla",
-        "city": "Cádiz",
-        "country": "Spain",
-        "worksByComposer": [
-            {
-                "composer": "Bach Jr.",
-                "works": [
-                    "Hamburger Sonata"
-                ]
-            },
-            {
-                "composer": "Edgard Varèse",
-                "works": [
-                    "Density"
-                ]
-            }
-        ],
-        "participants": [
-            {
-                "title": "Solo",
-                "name": "Jose Correro"
-            },
-            {
-                "title": "Piano",
-                "name": "Salomé Jiménez"
-            }
-        ]
-    }, {
-        "title": "Concert #4",
         "date": "2024-07-13",
         "place": "Auditorio Real Conservatorio Manuel de Falla",
         "city": "Cádiz",
@@ -109,15 +81,43 @@
             {
                 "title": "Solo",
                 "name": "Jose Correro"
+            }
+        ],
+        "image": "concert5.jpg"
+    }, {
+        "title": "Concert #4",
+        "date": "2024-07-15",
+        "place": "Auditorio Real Conservatorio Manuel de Falla",
+        "city": "Cádiz",
+        "country": "Spain",
+        "worksByComposer": [
+            {
+                "composer": "Bach Jr.",
+                "works": [
+                    "Hamburger Sonata"
+                ]
+            },
+            {
+                "composer": "Edgard Varèse",
+                "works": [
+                    "Density"
+                ]
+            }
+        ],
+        "participants": [
+            {
+                "title": "Solo",
+                "name": "Jose Correro"
             },
             {
                 "title": "Piano",
                 "name": "Salomé Jiménez"
             }
-        ]
+        ],
+        "image": "concert5.jpg"
     }, {
         "title": "Concert #5",
-        "date": "2024-07-21",
+        "date": "2024-07-17",
         "place": "Auditorio Real Conservatorio Manuel de Falla",
         "city": "Cádiz",
         "country": "Spain",
@@ -143,16 +143,16 @@
                 "name": "Jerome Ireland"
             }, {
                 "title": "Flute",
-                "name": "Juan Ramón Bres"
+                "name": "Juan Ramón Bres Regueiro"
             }, {
                 "title": "Piano",
-                "name": "Anabel Martín"
+                "name": "Anabel Martín Rodilla"
             }, {
                 "title": "Clarinet",
-                "name": "Christian Okawara"
+                "name": "Christian Okawara López"
             }, {
                 "title": "Cello",
-                "name": "José Antonio Escobar"
+                "name": "José Antonio Escobar Crespo"
             }
         ],
         "image": "concert5.jpg"
