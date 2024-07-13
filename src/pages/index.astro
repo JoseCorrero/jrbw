@@ -1,7 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 ---
 
 <Layout title="Bienvenido a JRBW">
-
+    <Header
+        isHome={true}
+        isConcerts={false}
+        isBiography={false}
+    />
 </Layout>
+
+<style>
+    html {
+        background-color: var(--home-background-color);
+    }
+</style>

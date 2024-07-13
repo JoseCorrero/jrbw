@@ -1,8 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
 import ConcertsSection from "../sections/ConcertsSection.astro";
 ---
 
 <Layout title="Concerts">
+    <Header
+        isHome={false}
+        isConcerts={true}
+        isBiography={false}
+    />
     <ConcertsSection />
 </Layout>
+
+<style>
+    html {
+        background-color: var(--concerts-background-color);
+    }
+</style>

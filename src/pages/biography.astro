@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import BiographySection from '../sections/BiographySection.astro';
+---
+
+<Layout title="Biography">
+    <Header
+        isHome={false}
+        isConcerts={false}
+        isBiography={true}
+    />
+    <BiographySection />
+</Layout>
+
+<style>
+    html {
+        background-color: var(--biography-background-color);
+    }
+</style>

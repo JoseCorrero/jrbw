@@ -32,7 +32,9 @@ const { title } = Astro.props;
 		--color-primary: #ececec;
 		--color-selected: #06b6d4; /* cyan-500 */
 
-		--background-color: #111827; /* gray-900 */
+		--home-background-color: red;
+		--concerts-background-color: #111827; /* gray-900 */
+		--biography-background-color: #525252 ; /* neutral-600 */
 
 		--transition-speed: 0.3s;
 
@@ -56,6 +58,10 @@ const { title } = Astro.props;
 		--font-size-4-sm: 1.2rem;
 		--font-size-5-sm: 1rem;
 		--font-size-6-sm: 1.1rem;
+	}
+
+	html {
+		font-family: system-ui, sans-serif;
 	}
 
 	.font-size-1 {
@@ -132,10 +138,5 @@ const { title } = Astro.props;
 		.font-size-6 {
 			font-size: var(--font-size-6-sm);
 		}
-	}
-
-	html {
-		font-family: system-ui, sans-serif;
-		background: var(--background-color);
 	}
 </style>
