@@ -14,6 +14,15 @@ const old = concerts.filter(({ date }) => new Date(date) < todayTrim);
 
 const MS_PER_DAY = (24 * 60 * 60 * 1000);
 
+const locale = new Intl.Locale('en');
+
+const dateFormatter = new Intl.DateTimeFormat(locale, {
+	weekday: "long",
+	year: "numeric",
+	month: "short",
+	day: "numeric"
+});
+
 function isToday(date: string) {
     return new Date(date).getTime() == todayTrim.getTime();
 }
@@ -53,7 +62,8 @@ function lessThanAWeekToConcert(date: string): boolean {
                                     concert={concert}
                                     isNext={true}
                                     isToday={isToday(concert.date)}
-                                    showDayOfWeek={lessThanAWeekToConcert(concert.date)} />
+                                    showDayOfWeek={lessThanAWeekToConcert(concert.date)}
+                                    dateFormatter={dateFormatter} />
                             )
                         }
                     </div>
@@ -69,7 +79,8 @@ function lessThanAWeekToConcert(date: string): boolean {
                                     concert={concert}
                                     isNext={false}
                                     isToday={false}
-                                    showDayOfWeek={false} />
+                                    showDayOfWeek={false}
+                                    dateFormatter={dateFormatter} />
                             )
                         }
                     </div>
@@ -85,22 +96,6 @@ function lessThanAWeekToConcert(date: string): boolean {
 <style>
     .current-section {
         color: var(--color-selected);
-    }
-
-    .button-underline {
-        content: "";
-        background: var(--color-selected);
-        height: 3px;
-    }
-
-    .button-next-underline {
-        width: 153px;
-        left: -1em;
-    }
-
-    .button-old-underline {
-        width: 143px;
-        right: -9.75em;
     }
 
     .concerts-content {

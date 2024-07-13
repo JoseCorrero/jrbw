@@ -6,18 +6,11 @@ interface Props {
 	isNext: boolean;
 	isToday: boolean;
 	showDayOfWeek: boolean;
+
+	dateFormatter: Intl.DateTimeFormat;
 }
 
-const locale = new Intl.Locale('en');
-
-const dateFormatter = new Intl.DateTimeFormat(locale, {
-	weekday: "long",
-	year: "numeric",
-	month: "short",
-	day: "numeric"
-});
-
-const { concert, isNext, isToday, showDayOfWeek } = Astro.props;
+const { concert, isNext, isToday, showDayOfWeek, dateFormatter } = Astro.props;
 
 const date = new Date(concert.date);
 const prettyDate = dateFormatter.formatToParts(date);
@@ -47,8 +40,8 @@ const year = prettyDate[6].value;
 				{showDayOfWeek &&
 					<div class="w-full sm:w-1/3 sm:pr-0 md:w-1/2 md:text-center">
 						<span class:list={[
-							"font-bold uppercase text-[var(--text-color-dayOfWeek)]",
-							{ "text-[var(--text-color-today)] font-extrabold": isToday }
+							"font-bold text-[var(--text-color-dayOfWeek)] uppercase",
+							{ "font-extrabold text-[var(--text-color-today)]": isToday }
 						]}>{dayOfWeek}</span>
 					</div>
 				}
