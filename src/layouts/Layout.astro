@@ -35,6 +35,103 @@ const { title } = Astro.props;
 		--background-color: #111827; /* gray-900 */
 
 		--transition-speed: 0.3s;
+
+		--font-size-1: 1.05rem;
+		--font-size-2: 1.3rem;
+		--font-size-3: 0.85rem;
+		--font-size-4: 1rem;
+		--font-size-5: 0.8rem;
+		--font-size-6: 0.9rem;
+
+		--font-size-1-xs: 1.15rem;
+		--font-size-2-xs: 1.4rem;
+		--font-size-3-xs: 0.95rem;
+		--font-size-4-xs: 1.1rem;
+		--font-size-5-xs: 0.9rem;
+		--font-size-6-xs: 1rem;
+
+		--font-size-1-sm: 1.25rem;
+		--font-size-2-sm: 1.5rem;
+		--font-size-3-sm: 1.05rem;
+		--font-size-4-sm: 1.2rem;
+		--font-size-5-sm: 1rem;
+		--font-size-6-sm: 1.1rem;
+	}
+
+	.font-size-1 {
+		font-size: var(--font-size-1);
+	}
+
+	.font-size-2 {
+		font-size: var(--font-size-2);
+	}
+
+	.font-size-3 {
+		font-size: var(--font-size-3);
+	}
+
+	.font-size-4 {
+		font-size: var(--font-size-4);
+	}
+
+	.font-size-5 {
+		font-size: var(--font-size-5);
+	}
+
+	.font-size-6 {
+		font-size: var(--font-size-6);
+	}
+
+	@media (min-width: 375px) {
+		.font-size-1 {
+			font-size: var(--font-size-1-xs);
+		}
+
+		.font-size-2 {
+			font-size: var(--font-size-2-xs);
+		}
+
+		.font-size-3 {
+			font-size: var(--font-size-3-xs);
+		}
+
+		.font-size-4 {
+			font-size: var(--font-size-4-xs);
+		}
+
+		.font-size-5 {
+			font-size: var(--font-size-5-xs);
+		}
+
+		.font-size-6 {
+			font-size: var(--font-size-6-xs);
+		}
+	}
+
+	@media (min-width: 640px) {
+		.font-size-1 {
+			font-size: var(--font-size-1-sm);
+		}
+
+		.font-size-2 {
+			font-size: var(--font-size-2-sm);
+		}
+
+		.font-size-3 {
+			font-size: var(--font-size-3-sm);
+		}
+
+		.font-size-4 {
+			font-size: var(--font-size-4-sm);
+		}
+
+		.font-size-5 {
+			font-size: var(--font-size-5-sm);
+		}
+
+		.font-size-6 {
+			font-size: var(--font-size-6-sm);
+		}
 	}
 
 	html {
