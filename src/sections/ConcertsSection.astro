@@ -64,7 +64,7 @@ function lessThanAWeekToConcert(date: string): boolean {
                 <div class="sm:w-full md:w-2/3 lg:w-1/2 p-6">
                     <div class="grid gap-y-16">
                         {
-                            old.map(concert =>
+                            old.reverse().map(concert =>
                                 <ConcertCard
                                     concert={concert}
                                     isNext={false}
